@@ -54,7 +54,7 @@ public class PlayerBasicAttackState : PlayerState
             QueueNextAttack();
         }
 
-        if (triggerCalled)
+        if (isTriggerCalled)
         {
             HandleStateExit();
         }
