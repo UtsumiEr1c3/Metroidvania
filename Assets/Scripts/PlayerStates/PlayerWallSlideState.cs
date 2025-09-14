@@ -1,6 +1,6 @@
 ﻿ using UnityEngine;
 
-public class PlayerWallSlideState : EntityState
+public class PlayerWallSlideState : PlayerState
 {
     public PlayerWallSlideState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
@@ -17,12 +17,12 @@ public class PlayerWallSlideState : EntityState
             stateMachine.ChangeState(player.wallJumpState);
         }
 
-        if (player.wallDetected == false)
+        if (player.isWallDetected == false)
         {
             stateMachine.ChangeState(player.fallState);
         }
 
-        if (player.groundDetected)
+        if (player.isGroundDetected)
         {
             {
                 stateMachine.ChangeState(player.idleState);

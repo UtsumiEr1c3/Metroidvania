@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerDashState : EntityState
+public class PlayerDashState : PlayerState
 {
     private float originalGravityScale;
     private int dashDir;
@@ -38,7 +38,7 @@ public class PlayerDashState : EntityState
 
         if (stateTimer < 0)
         {
-            if (player.groundDetected)
+            if (player.isGroundDetected)
             {
                 stateMachine.ChangeState(player.idleState);
             }
@@ -58,9 +58,9 @@ public class PlayerDashState : EntityState
 
     private void CancelDashIfNeeded()
     {
-        if (player.wallDetected)
+        if (player.isWallDetected)
         {
-            if (player.groundDetected)
+            if (player.isGroundDetected)
             {
                 stateMachine.ChangeState(player.idleState);
             }
