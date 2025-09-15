@@ -59,7 +59,7 @@ public class Entity : MonoBehaviour
     /// if moving left && facing right, flip transform.
     /// </summary>
     /// <param name="xVelcoity"></param>
-    private void HandleFlip(float xVelcoity)
+    public void HandleFlip(float xVelcoity)
     {
         if (xVelcoity > 0 && isFacingRight == false)
         {

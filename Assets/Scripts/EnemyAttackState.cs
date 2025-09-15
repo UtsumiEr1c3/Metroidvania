@@ -12,7 +12,7 @@ public class EnemyAttackState : EnemyState
 
         if (isTriggerCalled)
         {
-            stateMachine.ChangeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.battleState);
         }
     }
 }

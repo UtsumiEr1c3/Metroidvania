@@ -3,6 +3,7 @@
 public class EnemyBattleState : EnemyState
 {
     private Transform player;
+    private float lastTimeWasInBattle;
 
     public EnemyBattleState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
@@ -14,7 +15,13 @@ public class EnemyBattleState : EnemyState
 
         if (player == null)
         {
-            player = enemy.PlayerDetection().transform;
+            player = enemy.PlayerDetected().transform;
+        }
+
+        if (ShouldRetreat())
+        {
+            rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * -DirectionToPlayer(), enemy.retreatVelocity.y);
+            enemy.HandleFlip(DirectionToPlayer());
         }
     }
 
@@ -22,7 +29,17 @@ public class EnemyBattleState : EnemyState
     {
         base.Update();
 
-        if (IsWithinAttackRange())
+        if (enemy.PlayerDetected() == true)
+        {
+            UpdateBattleTime();
+        }
+
+        if (IsBattleTimeOver())
+        {
+            stateMachine.ChangeState(enemy.idleState);
+        }
+
+        if (IsWithinAttackRange() && enemy.PlayerDetected())
         {
             stateMachine.ChangeState(enemy.attackState);
         }
@@ -32,9 +49,24 @@ public class EnemyBattleState : EnemyState
         }
     }
 
+    private void UpdateBattleTime()
+    {
+        lastTimeWasInBattle = Time.time;
+    }
+
+    private bool IsBattleTimeOver()
+    {
+        return Time.time > lastTimeWasInBattle + enemy.battleTimeDuration;
+    }
+
     private bool IsWithinAttackRange()
     {
         return DistanceToPlayer() < enemy.attackDistance;
+    }
+
+    private bool ShouldRetreat()
+    {
+        return DistanceToPlayer() < enemy.minRetreatDistance;
     }
 
     private float DistanceToPlayer()

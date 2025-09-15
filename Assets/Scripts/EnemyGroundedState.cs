@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class EnemyGroundedState : EnemyState
 {
@@ -11,7 +11,7 @@ public class EnemyGroundedState : EnemyState
         base.Update();
 
         // if enemy detect player, state machine change to battle state
-        if (enemy.PlayerDetection() == true)
+        if (enemy.PlayerDetected() == true)
         {
             stateMachine.ChangeState(enemy.battleState);
         }
