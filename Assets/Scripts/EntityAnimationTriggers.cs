@@ -3,10 +3,12 @@
 public class EntityAnimationTriggers : MonoBehaviour
 {
     private Entity entity;
+    private EntityCombat entityCombat;
 
     private void Awake()
     {
         entity = GetComponentInParent<Entity>();
+        entityCombat = GetComponentInParent<EntityCombat>();
     }
 
     /// <summary>
@@ -15,5 +17,10 @@ public class EntityAnimationTriggers : MonoBehaviour
     private void CurrentStateTrigger()
     {
         entity.CurrentStateAnimationTrigger();
+    }
+
+    private void AttackTrigger()
+    {
+        entityCombat.PerformAttack();
     }
 }
