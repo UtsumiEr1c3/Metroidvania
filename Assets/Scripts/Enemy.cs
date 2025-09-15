@@ -31,7 +31,7 @@ public class Enemy : Entity
         base.Update();
     }
 
-    public RaycastHit2D PlayerDetection()
+    public RaycastHit2D PlayerDetected()
     {
         RaycastHit2D hit = Physics2D.Raycast(playerCheck.position, Vector2.right * facingDir, playerCheckDistance, whatIsPlayer | whatIsGround);
 
