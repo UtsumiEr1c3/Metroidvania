@@ -13,9 +13,11 @@ public class EnemyBattleState : EnemyState
     {
         base.Enter();
 
+        UpdateBattleTimer();
+
         if (player == null)
         {
-            player = enemy.PlayerDetected().transform;
+            player = enemy.GetPlayerReference();
         }
 
         if (ShouldRetreat())
@@ -31,7 +33,7 @@ public class EnemyBattleState : EnemyState
 
         if (enemy.PlayerDetected() == true)
         {
-            UpdateBattleTime();
+            UpdateBattleTimer();
         }
 
         if (IsBattleTimeOver())
@@ -49,7 +51,7 @@ public class EnemyBattleState : EnemyState
         }
     }
 
-    private void UpdateBattleTime()
+    private void UpdateBattleTimer()
     {
         lastTimeWasInBattle = Time.time;
     }
