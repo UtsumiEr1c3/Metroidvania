@@ -1,4 +1,5 @@
-﻿using UnityEditor.Experimental.GraphView;
+﻿using System;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Enemy : Entity
@@ -28,11 +29,29 @@ public class Enemy : Entity
     [SerializeField] private float playerCheckDistance = 10f;
     public Transform player { get; private set; }
 
+    private void OnEnable()
+    {
+        Player.OnPlayerDeath += HandlePlayerDeath;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnPlayerDeath -= HandlePlayerDeath;
+    }
+
     public override void EntityDeath()
     {
         base.EntityDeath();
 
         stateMachine.ChangeState(deadState);
+    }
+
+    /// <summary>
+    /// this function subscribe OnPlayerDeath, will be called when player dead
+    /// </summary>
+    private void HandlePlayerDeath()
+    {
+        stateMachine.ChangeState(idleState);
     }
 
     /// <summary>
@@ -60,7 +79,7 @@ public class Enemy : Entity
     }
 
     /// <summary>
-    /// 
+    /// performs a raycast to check if player is in distance and direction
     /// </summary>
     /// <returns></returns>
     public RaycastHit2D PlayerDetected()
