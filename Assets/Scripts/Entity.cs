@@ -20,6 +20,10 @@ public class Entity : MonoBehaviour
     public bool isGroundDetected { get; private set; }
     public bool isWallDetected { get; private set; }
 
+    // --- Condition variables ---
+    private bool isKnocked;
+    private Coroutine knockbackCo;
+
     protected virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -44,12 +48,49 @@ public class Entity : MonoBehaviour
     }
 
     /// <summary>
+    /// apply knockback effect to character
+    /// </summary>
+    /// <param name="knockback"></param>
+    /// <param name="duration"></param>
+    public void ReceiveKnockback(Vector2 knockback, float duration)
+    {
+        if (knockbackCo != null)
+        {
+            StopCoroutine(knockbackCo);
+        }
+
+        knockbackCo = StartCoroutine(KnockbackCo(knockback, duration));
+    }
+
+    /// <summary>
+    /// knockback character when take damage
+    /// </summary>
+    /// <param name="knockback"></param>
+    /// <param name="duration"></param>
+    /// <returns></returns>
+    private IEnumerator KnockbackCo(Vector2 knockback, float duration)
+    {
+        isKnocked = true;
+        rb.linearVelocity = knockback;
+
+        yield return new WaitForSeconds(duration);
+
+        rb.linearVelocity = Vector2.zero;
+        isKnocked = false;
+    }
+
+    /// <summary>
     /// set entity velocity with new value
     /// </summary>
     /// <param name="xVelocity"></param>
     /// <param name="yVelocity"></param>
     public void SetVelocity(float xVelocity, float yVelocity)
     {
+        if (isKnocked)
+        {
+            return;
+        }
+
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
         HandleFlip(xVelocity);
     }
