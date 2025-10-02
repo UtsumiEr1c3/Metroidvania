@@ -55,6 +55,7 @@ public class EntityHealth : MonoBehaviour
     private void Die()
     {
         isDead = true;
+        entity.EntityDeath();
     }
 
     /// <summary>

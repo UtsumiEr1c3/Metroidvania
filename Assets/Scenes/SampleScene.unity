@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e8f380dd45d6f488300ab71d72e36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 25
   targetCheck: {fileID: 1690480234}
   targetCheckRadius: 1
   whatIsTarget:

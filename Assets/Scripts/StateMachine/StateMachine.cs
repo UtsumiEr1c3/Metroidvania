@@ -3,16 +3,22 @@
 public class StateMachine 
 {
     public EntityState currentState { get; private set; }
-
+    public bool canChangeState;
 
     public void Initialize(EntityState startState)
     {
+        canChangeState = true;
         currentState = startState;
         currentState.Enter();
     }
 
     public void ChangeState(EntityState newState)
     {
+        if (canChangeState == false)
+        {
+            return;
+        }
+
         currentState.Exit();
         currentState = newState;
         currentState.Enter();
@@ -21,5 +27,13 @@ public class StateMachine
     public void UpdateActiveState()
     {
         currentState.Update();        
+    }
+
+    /// <summary>
+    /// disable the ability to change state
+    /// </summary>
+    public void SwitchOffStateMachine()
+    {
+        canChangeState = false;
     }
 }

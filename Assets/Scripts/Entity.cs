@@ -47,6 +47,11 @@ public class Entity : MonoBehaviour
         stateMachine.currentState.AnimationTrigger();
     }
 
+    public virtual void EntityDeath()
+    {
+
+    }
+
     /// <summary>
     /// apply knockback effect to character
     /// </summary>
