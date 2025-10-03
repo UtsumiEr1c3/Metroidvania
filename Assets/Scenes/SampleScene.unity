@@ -299,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 274070544}
   - component: {fileID: 274070543}
-  - component: {fileID: 274070547}
+  - component: {fileID: 274070550}
   - component: {fileID: 274070548}
   - component: {fileID: 274070549}
   - component: {fileID: 274070545}
@@ -428,24 +428,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.33201736}
   m_Size: {x: 0.77, y: 1.9512452}
   m_Direction: 0
---- !u!114 &274070547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274070542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e8f380dd45d6f488300ab71d72e36a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 25
-  targetCheck: {fileID: 1690480234}
-  targetCheckRadius: 1
-  whatIsTarget:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &274070548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +462,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: a36ae34ac4792144688efbccbb4e143e, type: 2}
   onDamageVfxDuration: 0.15
+  hitVfx: {fileID: 1636761330624867856, guid: 48452fa0db82aae4e8c69390ad17f4c4, type: 3}
+  hitVfxColor: {r: 1, g: 0.9786224, b: 0, a: 1}
+--- !u!114 &274070550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ea979877b0be54ba66f2daecf3f7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  targetCheck: {fileID: 1690480234}
+  targetCheckRadius: 1
+  whatIsTarget:
+    serializedVersion: 2
+    m_Bits: 256
+  counterRecovery: 0.25
 --- !u!1 &286052834
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +619,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: a36ae34ac4792144688efbccbb4e143e, type: 2}
   onDamageVfxDuration: 0.2
+  hitVfx: {fileID: 0}
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &344415102
 GameObject:
   m_ObjectHideFlags: 0
@@ -61131,6 +61136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: a36ae34ac4792144688efbccbb4e143e, type: 2}
   onDamageVfxDuration: 0.2
+  hitVfx: {fileID: 1636761330624867856, guid: 48452fa0db82aae4e8c69390ad17f4c4, type: 3}
+  hitVfxColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
   attackAlert: {fileID: 604598661}
 --- !u!1 &1401896352
 GameObject:
