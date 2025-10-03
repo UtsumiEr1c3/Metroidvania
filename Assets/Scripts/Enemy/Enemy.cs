@@ -10,6 +10,7 @@ public class Enemy : Entity
     public EnemyAttackState attackState;
     public EnemyBattleState battleState;
     public EnemyDeadState deadState;
+    public EnemyStunnedState stunnedState;
 
     [Header("Battle details")] 
     public float battleMoveSpeed = 3;
@@ -17,6 +18,11 @@ public class Enemy : Entity
     public float battleTimeDuration = 5f;
     public float minRetreatDistance = 1;
     public Vector2 retreatVelocity;
+
+    [Header("Stunned state details")] 
+    public float stunnedDuration = 1;
+    public Vector2 stunnedVelocity = new Vector2(7, 7);
+    [SerializeField] protected bool canBeStunned;
 
     [Header("Movement details")] 
     public float idleTime = 2;
@@ -37,6 +43,11 @@ public class Enemy : Entity
     private void OnDisable()
     {
         Player.OnPlayerDeath -= HandlePlayerDeath;
+    }
+
+    public void EnableConterWindow(bool enable)
+    {
+        canBeStunned = enable;
     }
 
     public override void EntityDeath()
