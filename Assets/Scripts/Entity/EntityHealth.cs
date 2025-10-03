@@ -1,8 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EntityHealth : MonoBehaviour, IDamagable
 {
+    private Slider healthBar;
     private EntityVFX entityVfx;
     private Entity entity;
 
@@ -23,8 +25,10 @@ public class EntityHealth : MonoBehaviour, IDamagable
     {
         entityVfx = GetComponent<EntityVFX>();
         entity = GetComponent<Entity>();
+        healthBar = GetComponentInChildren<Slider>();
 
         currentHp = maxHp;
+        UpdateHealthBar();
     }
 
     public virtual void TakeDamage(float damage, Transform damageDealer)
@@ -45,6 +49,7 @@ public class EntityHealth : MonoBehaviour, IDamagable
     protected void ReduceHp(float damage)
     {
         currentHp -= damage;
+        UpdateHealthBar();
 
         if (currentHp <= 0)
         {
@@ -56,6 +61,19 @@ public class EntityHealth : MonoBehaviour, IDamagable
     {
         isDead = true;
         entity.EntityDeath();
+    }
+
+    /// <summary>
+    /// update the heath bar slider UI
+    /// </summary>
+    private void UpdateHealthBar()
+    {
+        if (healthBar == null)
+        {
+            return;
+        }
+
+        healthBar.value = currentHp / maxHp;
     }
 
     /// <summary>
