@@ -46,12 +46,20 @@ public class EntityHealth : MonoBehaviour, IDamagable
             return false;
         }
 
-        Vector2 knockback = CalculateKnockback(damage, damageDealer);
-        float duration = CalculateDuration(damage);
+        EntityStats attackerStats = damageDealer.GetComponent<EntityStats>();
+        float armorReduction = attackerStats != null ? attackerStats.GetArmorReduction() : 0;
+
+        float minigation = stats.GetArmorMitigation(armorReduction);
+        float finalDamage = damage * (1 - minigation);
+
+        Vector2 knockback = CalculateKnockback(finalDamage, damageDealer);
+        float duration = CalculateDuration(finalDamage);
 
         entity?.ReceiveKnockback(knockback, duration);
         entityVfx?.PlayerOnDamageVfx();
-        ReduceHp(damage);
+        ReduceHp(finalDamage);
+
+        Debug.Log("damage taken: " + finalDamage);
 
         return true;
     }
