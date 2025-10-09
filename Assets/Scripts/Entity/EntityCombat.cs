@@ -30,8 +30,9 @@ public class EntityCombat : MonoBehaviour
                 continue; // skip target
             }
 
+            float elementalDamage = stats.GetElementalDamage(out var element);
             float damage = stats.GetPhysicalDamage(out bool isCrit);
-            bool isTargetGotHit = damagable.TakeDamage(damage, transform);
+            bool isTargetGotHit = damagable.TakeDamage(damage, elementalDamage, element, transform);
             if (isTargetGotHit)
             {
                 vfx.CreateOnHitVFX(target.transform, isCrit);  

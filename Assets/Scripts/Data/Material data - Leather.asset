@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b4ae6410a334440a3042366095ecf2, type: 3}
   m_Name: Material data - Leather
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Leather
   itemIcon: {fileID: 0}
   itemType: 0
