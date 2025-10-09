@@ -9,7 +9,7 @@ public class StatDefenceGroup
     public Stat evasion;
 
     // --- Elemental resistance ---
-    public Stat fileRes;
+    public Stat fireRes;
     public Stat iceRes;
     public Stat lightningRes;
 }
