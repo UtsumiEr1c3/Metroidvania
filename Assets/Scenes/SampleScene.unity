@@ -567,6 +567,7 @@ GameObject:
   - component: {fileID: 274070550}
   - component: {fileID: 274070548}
   - component: {fileID: 274070551}
+  - component: {fileID: 274070552}
   - component: {fileID: 274070549}
   - component: {fileID: 274070545}
   - component: {fileID: 274070546}
@@ -731,6 +732,7 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 0.9786224, b: 0, a: 1}
   hitVfx: {fileID: 1636761330624867856, guid: 48452fa0db82aae4e8c69390ad17f4c4, type: 3}
   critHitVfx: {fileID: 8543542658312784851, guid: 01cb320e9cce9db40b0039b539448cc5, type: 3}
+  chillVfx: {r: 0.42352942, g: 0.50980395, b: 1, a: 1}
 --- !u!114 &274070550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,6 +750,8 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
+  defaultDuration: 3
+  chillSlowMultiplier: 0.4
   counterRecovery: 0.25
 --- !u!114 &274070551
 MonoBehaviour:
@@ -778,13 +782,13 @@ MonoBehaviour:
     critPower:
       baseValue: 250
     critChance:
-      baseValue: 100
+      baseValue: 60
     armorReduction:
       baseValue: 0
     fireDamage:
       baseValue: 0
     iceDamage:
-      baseValue: 0
+      baseValue: 10
     lightningDamage:
       baseValue: 0
   defence:
@@ -793,11 +797,23 @@ MonoBehaviour:
     evasion:
       baseValue: 0
     fireRes:
-      baseValue: 0
+      baseValue: 35
     iceRes:
       baseValue: 0
     lightningRes:
       baseValue: 0
+--- !u!114 &274070552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50db40ea99cb9d4da69a0488a5457c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &286052834
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +953,7 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVfx: {fileID: 0}
   critHitVfx: {fileID: 0}
+  chillVfx: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &344415102
 GameObject:
   m_ObjectHideFlags: 0
@@ -61822,6 +61839,7 @@ GameObject:
   - component: {fileID: 1205708498}
   - component: {fileID: 1205708499}
   - component: {fileID: 1205708501}
+  - component: {fileID: 1205708502}
   - component: {fileID: 1205708500}
   - component: {fileID: 1205708497}
   - component: {fileID: 1205708496}
@@ -61841,7 +61859,7 @@ Transform:
   m_GameObject: {fileID: 1205708493}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.65, y: 0.29198787, z: -0.14452237}
+  m_LocalPosition: {x: -10.5, y: 0.29198787, z: -0.14452237}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -61970,6 +61988,8 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
+  defaultDuration: 3
+  chillSlowMultiplier: 0.4
 --- !u!114 &1205708499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62006,6 +62026,7 @@ MonoBehaviour:
   hitVfxColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
   hitVfx: {fileID: 1636761330624867856, guid: 48452fa0db82aae4e8c69390ad17f4c4, type: 3}
   critHitVfx: {fileID: 8543542658312784851, guid: 01cb320e9cce9db40b0039b539448cc5, type: 3}
+  chillVfx: {r: 0.42352942, g: 0.50980395, b: 1, a: 1}
   attackAlert: {fileID: 604598661}
 --- !u!114 &1205708501
 MonoBehaviour:
@@ -62040,11 +62061,11 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 0
+      baseValue: 10
     iceDamage:
-      baseValue: 0
+      baseValue: 20
     lightningDamage:
-      baseValue: 0
+      baseValue: 6
   defence:
     armor:
       baseValue: 0
@@ -62056,6 +62077,18 @@ MonoBehaviour:
       baseValue: 0
     lightningRes:
       baseValue: 0
+--- !u!114 &1205708502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205708493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50db40ea99cb9d4da69a0488a5457c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1266348160
 GameObject:
   m_ObjectHideFlags: 0
