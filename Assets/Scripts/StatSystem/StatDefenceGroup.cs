@@ -1,0 +1,15 @@
+﻿using System;
+using UnityEngine;
+
+[Serializable]
+public class StatDefenceGroup
+{
+    // --- Physical defense
+    public Stat armor;
+    public Stat evasion;
+
+    // --- Elemental resistance ---
+    public Stat fileRes;
+    public Stat iceRes;
+    public Stat lightningRes;
+}
