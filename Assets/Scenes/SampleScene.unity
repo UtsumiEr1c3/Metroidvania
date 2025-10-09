@@ -789,7 +789,7 @@ MonoBehaviour:
     armor:
       baseValue: 0
     evasion:
-      baseValue: 0
+      baseValue: 100
     fileRes:
       baseValue: 0
     iceRes:
@@ -61828,7 +61828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1205708494
 Transform:
   m_ObjectHideFlags: 0
@@ -62044,7 +62044,7 @@ MonoBehaviour:
     armor:
       baseValue: 0
     evasion:
-      baseValue: 0
+      baseValue: 100
     fileRes:
       baseValue: 0
     iceRes:
@@ -63217,7 +63217,7 @@ RectTransform:
   m_Father: {fileID: 1807434351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.15399933, y: -0.32000017}
   m_SizeDelta: {x: -1.076, y: 3.83}
   m_Pivot: {x: 0.5, y: 0.5}

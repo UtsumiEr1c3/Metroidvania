@@ -29,8 +29,11 @@ public class EntityCombat : MonoBehaviour
             {
                 continue; // skip target
             }
-            damagable.TakeDamage(damage, transform);
-            vfx.CreateOnHitVFX(target.transform);
+            bool isTargetGotHit = damagable.TakeDamage(damage, transform);
+            if (isTargetGotHit)
+            {
+                vfx.CreateOnHitVFX(target.transform);  
+            }
         }
     }
 
