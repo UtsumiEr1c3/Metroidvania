@@ -734,6 +734,7 @@ MonoBehaviour:
   critHitVfx: {fileID: 8543542658312784851, guid: 01cb320e9cce9db40b0039b539448cc5, type: 3}
   chillVfx: {r: 0.42352942, g: 0.50980395, b: 1, a: 1}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &274070550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,6 +754,9 @@ MonoBehaviour:
     m_Bits: 256
   defaultDuration: 3
   chillSlowMultiplier: 0.4
+  electrifyChargeBuildUp: 0.4
+  fireScale: 0.8
+  lightningScale: 2.5
   counterRecovery: 0.25
 --- !u!114 &274070551
 MonoBehaviour:
@@ -779,7 +783,7 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 10
+      baseValue: 0
     critPower:
       baseValue: 250
     critChance:
@@ -787,11 +791,11 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 100
+      baseValue: 0
     iceDamage:
       baseValue: 0
     lightningDamage:
-      baseValue: 0
+      baseValue: 100
   defence:
     armor:
       baseValue: 0
@@ -815,6 +819,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50db40ea99cb9d4da69a0488a5457c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightningStrikeVfx: {fileID: 5750376366314073154, guid: db21c5db9ad281a4ab2ee05e22f48777, type: 3}
+  currentCharge: 0
+  maximumCharge: 1
 --- !u!1 &286052834
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +963,7 @@ MonoBehaviour:
   critHitVfx: {fileID: 0}
   chillVfx: {r: 0, g: 1, b: 1, a: 1}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &344415102
 GameObject:
   m_ObjectHideFlags: 0
@@ -61992,6 +62000,9 @@ MonoBehaviour:
     m_Bits: 128
   defaultDuration: 3
   chillSlowMultiplier: 0.4
+  electrifyChargeBuildUp: 0.4
+  fireScale: 0.8
+  lightningScale: 2.5
 --- !u!114 &1205708499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62030,6 +62041,7 @@ MonoBehaviour:
   critHitVfx: {fileID: 8543542658312784851, guid: 01cb320e9cce9db40b0039b539448cc5, type: 3}
   chillVfx: {r: 0.42352942, g: 0.50980395, b: 1, a: 1}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackAlert: {fileID: 604598661}
 --- !u!114 &1205708501
 MonoBehaviour:
@@ -62064,11 +62076,11 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 100
+      baseValue: 0
     iceDamage:
       baseValue: 0
     lightningDamage:
-      baseValue: 0
+      baseValue: 10
   defence:
     armor:
       baseValue: 0
@@ -62092,6 +62104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50db40ea99cb9d4da69a0488a5457c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightningStrikeVfx: {fileID: 5750376366314073154, guid: db21c5db9ad281a4ab2ee05e22f48777, type: 3}
+  currentCharge: 0
+  maximumCharge: 1
 --- !u!1 &1266348160
 GameObject:
   m_ObjectHideFlags: 0
