@@ -34,8 +34,8 @@ public class EntityCombat : MonoBehaviour
                 continue; // skip target
             }
 
-            float elementalDamage = stats.GetElementalDamage(out var element);
-            float damage = stats.GetPhysicalDamage(out bool isCrit);
+            float elementalDamage = stats.GetElementalDamage(out var element, 0.6f);
+            float damage = stats.GetPhysicalDamage(out bool isCrit, 1.2f);
             bool isTargetGotHit = damagable.TakeDamage(damage, elementalDamage, element, transform);
 
             if (element != ElementType.None)
@@ -51,7 +51,7 @@ public class EntityCombat : MonoBehaviour
         }
     }
 
-    public void ApplyStatusEffect(Transform target, ElementType element)
+    public void ApplyStatusEffect(Transform target, ElementType element, float scaleFactor = 1)
     {
         EntityStatusHandler statusHandler = target.GetComponent<EntityStatusHandler>();
         if (statusHandler == null)
@@ -61,7 +61,13 @@ public class EntityCombat : MonoBehaviour
 
         if (element == ElementType.Ice && statusHandler.CanBeApplied(ElementType.Ice))
         {
-            statusHandler.ApplyChilledEffect(defaultDuration, chillSlowMultiplier);
+            statusHandler.ApplyChilledEffect(defaultDuration, chillSlowMultiplier * scaleFactor);
+        }
+
+        if (element == ElementType.Fire && statusHandler.CanBeApplied(ElementType.Fire))
+        {
+            float fireDamage = stats.offense.fireDamage.GetValue() * scaleFactor;
+            statusHandler.ApplyBurnEffect(defaultDuration, fireDamage);
         }
     }
 

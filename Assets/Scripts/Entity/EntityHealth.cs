@@ -79,7 +79,7 @@ public class EntityHealth : MonoBehaviour, IDamagable
         return Random.Range(0, 100) < stats.GetEvasion();
     }
 
-    protected void ReduceHp(float damage)
+    public void ReduceHp(float damage)
     {
         entityVfx?.PlayerOnDamageVfx();
         currentHp -= damage;
