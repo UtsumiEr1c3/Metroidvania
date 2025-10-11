@@ -2,6 +2,8 @@
 
 public class EntityStats : MonoBehaviour
 {
+    public StatSetupSO defaultStatSetup;
+
     public StatResourceGroup resource;
     public StatMajorGroup major;
     public StatOffenseGroup offense;
@@ -167,5 +169,42 @@ public class EntityStats : MonoBehaviour
                 Debug.LogError($"StatType {type} not implement yes.");
                 return null;
         }
+    }
+
+    [ContextMenu("Update Default Stat Setup")]
+    public void ApplyDefaultStatSetup()
+    {
+        if (defaultStatSetup == null)
+        {
+            Debug.Log("No default stat setup assigned");
+            return;
+        }
+
+        // --- 资源属性 (Resource Stats) ---
+        resource.maxHealth.SetBaseValue(defaultStatSetup.maxHealth);
+        resource.healthRegen.SetBaseValue(defaultStatSetup.healthRegen);
+
+        // --- 主要属性 (Major Stats) ---
+        major.strength.SetBaseValue(defaultStatSetup.strength);
+        major.agility.SetBaseValue(defaultStatSetup.agility);
+        major.intelligence.SetBaseValue(defaultStatSetup.intelligence);
+        major.vitality.SetBaseValue(defaultStatSetup.vitality);
+
+        // --- 攻击属性 (Offense Stats) ---
+        offense.attackSpeed.SetBaseValue(defaultStatSetup.attackSpeed);
+        offense.damage.SetBaseValue(defaultStatSetup.damage);
+        offense.critChance.SetBaseValue(defaultStatSetup.critChance);
+        offense.critPower.SetBaseValue(defaultStatSetup.critPower);
+        offense.armorReduction.SetBaseValue(defaultStatSetup.armorReduction);
+        offense.fireDamage.SetBaseValue(defaultStatSetup.fireDamage);
+        offense.iceDamage.SetBaseValue(defaultStatSetup.iceDamage);
+        offense.lightningDamage.SetBaseValue(defaultStatSetup.lightningDamage);
+
+        // --- 防御属性 (Defence Stats) ---
+        defence.armor.SetBaseValue(defaultStatSetup.armor);
+        defence.evasion.SetBaseValue(defaultStatSetup.evasion);
+        defence.fireRes.SetBaseValue(defaultStatSetup.fireResistance);
+        defence.iceRes.SetBaseValue(defaultStatSetup.iceResistance);
+        defence.lightningRes.SetBaseValue(defaultStatSetup.lightningResistance);
     }
 }
