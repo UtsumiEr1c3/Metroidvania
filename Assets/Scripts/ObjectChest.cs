@@ -3,7 +3,7 @@ using UnityEditor.Tilemaps;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Chest : MonoBehaviour, IDamagable
+public class ObjectChest : MonoBehaviour, IDamagable
 {
     private Animator anim;
     private Rigidbody2D rb;
