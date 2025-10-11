@@ -2,7 +2,7 @@
 
 public class EntityStats : MonoBehaviour
 {
-    public Stat maxHealth;
+    public StatResourceGroup resource;
     public StatMajorGroup major;
     public StatOffenseGroup offense;
     public StatDefenceGroup defence;
@@ -116,7 +116,7 @@ public class EntityStats : MonoBehaviour
 
     public float GetMaxHealth()
     {
-        float baseMaxHealth = maxHealth.GetValue();
+        float baseMaxHealth = resource.maxHealth.GetValue();
         float bonusMaxHealth = major.vitality.GetValue() * 5;
         float finalMaxHealth = baseMaxHealth + bonusMaxHealth;
 

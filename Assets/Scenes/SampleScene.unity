@@ -708,8 +708,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a580487f4f1b4e848ad46eb9c14e5ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHp: 0
+  currentHealth: 0
   isDead: 0
+  regenInterval: 1
+  canRegenerateHealth: 1
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
   knockbackDuration: 0.2
@@ -770,8 +772,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335df066235c59548b6977557f293f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth:
-    baseValue: 1000
+  resource:
+    maxHealth:
+      baseValue: 1000
+    healthRegen:
+      baseValue: 40
   major:
     strength:
       baseValue: 0
@@ -782,6 +787,8 @@ MonoBehaviour:
     vitality:
       baseValue: 0
   offense:
+    attackSpeed:
+      baseValue: 1
     damage:
       baseValue: 0
     critPower:
@@ -61727,7 +61734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.26, y: 1.08}
+  m_AnchoredPosition: {x: 0.26, y: 1.54}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1176166826
@@ -62015,8 +62022,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6daee5d4e391ec42899e18e09c05575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHp: 0
+  currentHealth: 0
   isDead: 0
+  regenInterval: 1
+  canRegenerateHealth: 1
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
   knockbackDuration: 0.2
@@ -62055,8 +62064,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335df066235c59548b6977557f293f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth:
-    baseValue: 1000
+  resource:
+    maxHealth:
+      baseValue: 1000
+    healthRegen:
+      baseValue: 0
   major:
     strength:
       baseValue: 0
@@ -62067,8 +62079,10 @@ MonoBehaviour:
     vitality:
       baseValue: 0
   offense:
+    attackSpeed:
+      baseValue: 1
     damage:
-      baseValue: 10
+      baseValue: 150
     critPower:
       baseValue: 150
     critChance:

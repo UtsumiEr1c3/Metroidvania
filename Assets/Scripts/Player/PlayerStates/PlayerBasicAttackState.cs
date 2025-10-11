@@ -26,6 +26,7 @@ public class PlayerBasicAttackState : PlayerState
         base.Enter();
         comboAttackQueued = false;
         ResetComboIndexIfNeeded();
+        SyncAttackSpeed();
 
         // change attack derection if input
         if (player.moveInput.x != 0)

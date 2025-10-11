@@ -7,8 +7,10 @@ public class EnemyState : EntityState
     public EnemyState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(stateMachine, animBoolName)
     {
         this.enemy = enemy;
+
         this.rb = enemy.rb;
         this.anim = enemy.anim;
+        this.stats = enemy.stats;
     }
 
     public override void Update()
