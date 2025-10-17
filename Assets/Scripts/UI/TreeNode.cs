@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    private UI ui;
+    private RectTransform rect;
+
     [SerializeField] private SkillDataSO skillData;
     [SerializeField] private string skillName;
 
@@ -33,20 +36,11 @@ public class TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// </summary>
     public bool isLocked;
 
-    private void OnValidate()
-    {
-        if (skillData == null)
-        {
-            return;
-        }
-
-        skillName = skillData.displayName;
-        skillIcon.sprite = skillData.icon;
-        gameObject.name = "UI_TreeNode - " + skillData.displayName;
-    }
-
     private void Awake()
     {
+        ui = GetComponentInParent<UI>();
+        rect = GetComponent<RectTransform>();
+
         UpdateIconColor(GetColorByHex(lockedColorHex));
     }
 
@@ -102,6 +96,7 @@ public class TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        ui.skillToolTip.ShowToolTip(true, rect, skillData);
         if (isUnlocked == false)
         {
             UpdateIconColor(Color.white * 0.9f);
@@ -110,6 +105,7 @@ public class TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        ui.skillToolTip.ShowToolTip(false, null);
         if (isUnlocked == false)
         {
             UpdateIconColor(lastColor);
@@ -121,5 +117,17 @@ public class TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         ColorUtility.TryParseHtmlString(hexNumber, out Color color);
 
         return color;
+    }
+
+    private void OnValidate()
+    {
+        if (skillData == null)
+        {
+            return;
+        }
+
+        skillName = skillData.displayName;
+        skillIcon.sprite = skillData.icon;
+        gameObject.name = "UI_TreeNode - " + skillData.displayName;
     }
 }
