@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    [SerializeField] private SkillDataSO skillData;
+    [SerializeField] private string skillName;
+
     /// <summary>
     /// the icon of this skill
     /// </summary>
@@ -29,6 +32,18 @@ public class TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// when another road in current tree is unlocked, node on this tree is locked
     /// </summary>
     public bool isLocked;
+
+    private void OnValidate()
+    {
+        if (skillData == null)
+        {
+            return;
+        }
+
+        skillName = skillData.displayName;
+        skillIcon.sprite = skillData.icon;
+        gameObject.name = "UI_TreeNode - " + skillData.displayName;
+    }
 
     private void Awake()
     {
