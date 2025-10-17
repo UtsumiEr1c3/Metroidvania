@@ -37,9 +37,9 @@ public class EntityStats : MonoBehaviour
             return 0;
         }
 
-        float bonusFire = (Mathf.Approximately(fireDamage, highestDamage)) ? 0 : fireDamage * 0.5f;
-        float bonusIce = (Mathf.Approximately(iceDamage, highestDamage)) ? 0 : iceDamage * 0.5f;
-        float bonusLigntning = (Mathf.Approximately(lightningDamage, highestDamage)) ? 0 : lightningDamage * 0.5f;
+        float bonusFire = (element == ElementType.Fire) ? 0 : fireDamage * 0.5f;
+        float bonusIce = (element == ElementType.Ice) ? 0 : iceDamage * 0.5f;
+        float bonusLigntning = (element == ElementType.Lightning) ? 0 : lightningDamage * 0.5f;
 
         float weakerElementsDamage = bonusFire + bonusIce + bonusLigntning;
         float finalDamage = highestDamage + weakerElementsDamage + bonusElementalDamage;
