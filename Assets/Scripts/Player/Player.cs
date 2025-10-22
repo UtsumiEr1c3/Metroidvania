@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    private UI ui;
+
     public static event Action OnPlayerDeath;
     public PlayerInputSet input { get; private set; }
 
@@ -46,6 +48,7 @@ public class Player : Entity
     {
         base.Awake();
 
+        ui = FindAnyObjectByType<UI>();
         input = new PlayerInputSet();
 
         idleState = new PlayerIdleState(this, stateMachine, "isIdle");
@@ -60,6 +63,15 @@ public class Player : Entity
         deadState = new PlayerDeadState(this, stateMachine, "isDead");
         counterAttackState = new PlayerCounterAttackState(this, stateMachine, "isCounterAttack");
     }
+    private void OnEnable()
+    {
+        input.Enable();
+
+        input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
+
+        input.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTreeUI();
+    }
 
     protected override void Start()
     {
@@ -67,13 +79,6 @@ public class Player : Entity
         stateMachine.Initialize(idleState);
     }
 
-    private void OnEnable()
-    {
-        input.Enable();
-
-        input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
-        input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
-    }
 
     private void OnDisable()
     {
