@@ -600,10 +600,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 983595305}
-  - {fileID: 342674445}
-  - {fileID: 316504683}
   - {fileID: 154895665}
   - {fileID: 557085717}
+  - {fileID: 342674445}
+  - {fileID: 316504683}
   m_Father: {fileID: 1184344698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -724,6 +724,7 @@ GameObject:
   - component: {fileID: 274070551}
   - component: {fileID: 274070552}
   - component: {fileID: 274070549}
+  - component: {fileID: 274070553}
   - component: {fileID: 274070545}
   - component: {fileID: 274070546}
   m_Layer: 7
@@ -785,6 +786,7 @@ Transform:
   - {fileID: 1178330335}
   - {fileID: 1690480234}
   - {fileID: 1176166825}
+  - {fileID: 451039386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &274070545
@@ -1006,6 +1008,18 @@ MonoBehaviour:
   lightningStrikeVfx: {fileID: 5750376366314073154, guid: db21c5db9ad281a4ab2ee05e22f48777, type: 3}
   currentCharge: 0
   maximumCharge: 1
+--- !u!114 &274070553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feedb885752d6dc49bff6be29a5019d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &316504682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +1918,51 @@ MonoBehaviour:
   importantInfoHex: '#00A9FF'
   exampleColor: {r: 0, g: 0.6594002, b: 1, a: 1}
   lockedSkillText: You have taken a different path - this skill is now locked.
+--- !u!1 &451039385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451039386}
+  - component: {fileID: 451039387}
+  m_Layer: 7
+  m_Name: SkillsHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &451039386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451039385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 274070544}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451039387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451039385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9554c491b6ebbc944aceca396d3b486f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 3
 --- !u!1 &474866955
 GameObject:
   m_ObjectHideFlags: 0

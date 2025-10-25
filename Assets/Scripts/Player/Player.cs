@@ -8,6 +8,9 @@ public class Player : Entity
 
     public static event Action OnPlayerDeath;
     public PlayerInputSet input { get; private set; }
+    public PlayerSkillManager skillManager { get; private set; }
+
+    #region State Variables
 
     // --- player state ---
     public PlayerIdleState idleState { get; private set; }
@@ -21,6 +24,8 @@ public class Player : Entity
     public PlayerJumpAttackState jumpAttackState { get; private set; }
     public PlayerDeadState deadState { get; private set; }
     public PlayerCounterAttackState counterAttackState { get; private set; }
+
+    #endregion
 
     [Header("Attack details")]
     public Vector2[] attackVelocity; // movement velocity when player is attacking
@@ -50,6 +55,7 @@ public class Player : Entity
 
         ui = FindAnyObjectByType<UI>();
         input = new PlayerInputSet();
+        skillManager = GetComponent<PlayerSkillManager>();
 
         idleState = new PlayerIdleState(this, stateMachine, "isIdle");
         moveState = new PlayerMoveState(this, stateMachine, "isMove");
