@@ -8,4 +8,15 @@ public class PlayerSkillManager : MonoBehaviour
     {
         dash = GetComponentInChildren<SkillDash>();
     }
+
+    public SkillBase GetSkillByType(SkillType type)
+    {
+        switch (type)
+        {
+            case SkillType.Dash: return dash;
+            default: 
+                Debug.Log($"Skill type {type} is not implemented yet.");
+                return null;
+        }
+    }
 }
