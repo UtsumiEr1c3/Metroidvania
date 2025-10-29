@@ -6,6 +6,6 @@ public enum SkillUpgradeType
     Dash,
     DashCloneOnStart,
     DashCloneOnStartAndArrival,
-    DashShardOnShart,
+    DashShardOnStart,
     DashShardOnStartAndArrival
 }

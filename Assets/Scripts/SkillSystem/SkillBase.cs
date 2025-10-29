@@ -4,8 +4,8 @@ using UnityEngine;
 public class SkillBase : MonoBehaviour
 {
     [Header("General details")] 
-    [SerializeField] private SkillType skillType;
-    [SerializeField] private SkillUpgradeType upgradeType;
+    [SerializeField] protected SkillType skillType;
+    [SerializeField] protected SkillUpgradeType upgradeType;
     [SerializeField] private float cooldown;
     private float lastTimeUsed;
 
@@ -14,9 +14,10 @@ public class SkillBase : MonoBehaviour
         lastTimeUsed -= cooldown;
     }
 
-    public void SetSkillUpgrade(SkillUpgradeType upgrade)
+    public void SetSkillUpgrade(UpgradeData upgrade)
     {
-        upgradeType = upgrade;
+        upgradeType = upgrade.upgradeType;
+        cooldown = upgrade.cooldown;
     }
 
     public bool CanUseSkill()
@@ -28,6 +29,11 @@ public class SkillBase : MonoBehaviour
         }
 
         return true;
+    }
+
+    protected bool IsUnlocked(SkillUpgradeType upgradeToCheck)
+    {
+        return upgradeType == upgradeToCheck;
     }
 
     private bool IsOnCooldown()

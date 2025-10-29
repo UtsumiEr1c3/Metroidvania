@@ -13,6 +13,9 @@ public class PlayerDashState : PlayerState
     {
         base.Enter();
 
+        skillManager.dash.OnStartEffect();
+        player.vfx.DoImageEchoEffect(player.dashDuration);
+
         // change dash derection if input
         if (player.moveInput.x != 0)
         {
@@ -52,6 +55,9 @@ public class PlayerDashState : PlayerState
     public override void Exit()
     {
         base.Exit();
+
+        skillManager.dash.OnEndEffect();
+
         player.SetVelocity(0, 0);
         rb.gravityScale = originalGravityScale;
     }

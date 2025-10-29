@@ -1034,8 +1034,8 @@ GameObject:
   - component: {fileID: 274070548}
   - component: {fileID: 274070551}
   - component: {fileID: 274070552}
-  - component: {fileID: 274070549}
   - component: {fileID: 274070553}
+  - component: {fileID: 274070554}
   - component: {fileID: 274070545}
   - component: {fileID: 274070546}
   m_Layer: 7
@@ -1185,26 +1185,6 @@ MonoBehaviour:
   knockbackDuration: 0.2
   heavyKnockBackDuration: 0.5
   heavyDamegeThreshold: 0.3
---- !u!114 &274070549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274070542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6078272fb7e43c438c37b5c2bd6bdd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onDamageMaterial: {fileID: 2100000, guid: a36ae34ac4792144688efbccbb4e143e, type: 2}
-  onDamageVfxDuration: 0.15
-  hitVfxColor: {r: 1, g: 0.9786224, b: 0, a: 1}
-  hitVfx: {fileID: 1636761330624867856, guid: 48452fa0db82aae4e8c69390ad17f4c4, type: 3}
-  critHitVfx: {fileID: 8543542658312784851, guid: 01cb320e9cce9db40b0039b539448cc5, type: 3}
-  chillVfx: {r: 0.42352942, g: 0.50980395, b: 1, a: 1}
-  burnVfx: {r: 1, g: 0, b: 0, a: 1}
-  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &274070550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1331,6 +1311,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feedb885752d6dc49bff6be29a5019d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &274070554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f6249429ec02245a9a99218d4a10d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDamageMaterial: {fileID: 2100000, guid: a36ae34ac4792144688efbccbb4e143e, type: 2}
+  onDamageVfxDuration: 0.15
+  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitVfx: {fileID: 1636761330624867856, guid: 48452fa0db82aae4e8c69390ad17f4c4, type: 3}
+  critHitVfx: {fileID: 8543542658312784851, guid: 01cb320e9cce9db40b0039b539448cc5, type: 3}
+  chillVfx: {r: 0.42352942, g: 0.50980395, b: 1, a: 1}
+  burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  imageEchoInterval: 0.05
+  imageEchoPrefab: {fileID: 4023127363001613664, guid: 357f3c35932004d40b5c793b33cbdcf6, type: 3}
 --- !u!1 &284474688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0.000015258789}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342674446
@@ -2977,7 +2979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -247.50006}
+  m_AnchoredPosition: {x: -0.000061035156, y: -247.50006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &557085718
@@ -67449,7 +67451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -671.00006, y: -37.50006}
+  m_AnchoredPosition: {x: -297, y: -37.50006}
   m_SizeDelta: {x: 450.01807, y: 595.0001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1672079351
@@ -68541,7 +68543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1471, y: -37.50006}
+  m_AnchoredPosition: {x: -1585, y: -37.50006}
   m_SizeDelta: {x: 450.01807, y: 595.0001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1955155953
