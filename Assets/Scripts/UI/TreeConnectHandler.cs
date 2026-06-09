@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -44,6 +45,25 @@ public class TreeConnectHandler : MonoBehaviour
         }
 
         UpdateConnections();
+    }
+
+    /// <summary>
+    /// get child nodes that are connected to current node, used for locking child nodes when player takes another path
+    /// </summary>
+    /// <returns> List of child nodes </returns>
+    public List<TreeNode> GetChildNodes()
+    {
+        List<TreeNode> childNodes = new();
+
+        foreach (var node in connectDetails)
+        {
+            if (node.childNode != null)
+            {
+                childNodes.Add(node.childNode.GetComponent<TreeNode>());
+            }
+        }
+
+        return childNodes;
     }
 
     public void UpdateConnections()

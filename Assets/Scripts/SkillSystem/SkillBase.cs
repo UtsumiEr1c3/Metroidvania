@@ -22,6 +22,12 @@ public class SkillBase : MonoBehaviour
 
     public bool CanUseSkill()
     {
+        if (upgradeType == SkillUpgradeType.None)
+        {
+            Debug.Log("Skill is not unlocked yet");
+            return false;
+        }
+
         if (IsOnCooldown())
         {
             Debug.LogWarning("On cooldown");

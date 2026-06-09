@@ -2,10 +2,18 @@
 
 public enum SkillUpgradeType
 {
+    None,
+    
     // --- Dash tree ---
     Dash,
     DashCloneOnStart,
     DashCloneOnStartAndArrival,
     DashShardOnStart,
-    DashShardOnStartAndArrival
+    DashShardOnStartAndArrival,
+
+    Shard,
+    ShardMoveToEnemy,
+    ShardTripleCast,
+    ShardTeleport,
+    ShardTeleportAndHeal
 }

@@ -5,7 +5,11 @@ using System;
 public class SkillDataSO : ScriptableObject
 {
     public int cost;
+
+    public bool isUnlockedByDefault;
+
     public SkillType skillType;
+
     public UpgradeData upgradeData;
 
     [Header("Skill description")]

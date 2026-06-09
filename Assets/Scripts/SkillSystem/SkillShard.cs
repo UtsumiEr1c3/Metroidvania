@@ -7,6 +7,11 @@ public class SkillShard : SkillBase
 
     public void CreateShard()
     {
+        if (upgradeType == SkillUpgradeType.None)
+        {
+            return;
+        }
+
         GameObject shard = Instantiate(shardPrefab, transform.position, Quaternion.identity);
         shard.GetComponent<SkillObjectShard>().SetupShard(detonateTime);
     }

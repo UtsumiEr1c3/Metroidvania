@@ -14,6 +14,7 @@ public class TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [Header("Unlock details")] 
     public TreeNode[] neededNodes;
     public TreeNode[] conflictNodes;
+
     /// <summary>
     /// if this skill is unlocked
     /// </summary>
@@ -41,6 +42,14 @@ public class TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         connectHandler = GetComponent<TreeConnectHandler>();
 
         UpdateIconColor(GetColorByHex(lockedColorHex));
+    }
+
+    private void Start()
+    {
+        if (skillData.isUnlockedByDefault)
+        {
+            Unlock();
+        }
     }
 
     private void OnDisable()
@@ -125,6 +134,17 @@ public class TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         foreach (var node in conflictNodes)
         {
             node.isLocked = true;
+            node.LockChildNodes();
+        }
+    }
+
+    private void LockChildNodes()
+    {
+        isLocked = true;
+
+        foreach (var node in connectHandler.GetChildNodes())
+        {
+            node.LockChildNodes();
         }
     }
 

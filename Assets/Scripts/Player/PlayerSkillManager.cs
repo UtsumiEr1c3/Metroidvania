@@ -15,6 +15,8 @@ public class PlayerSkillManager : MonoBehaviour
         switch (type)
         {
             case SkillType.Dash: return dash;
+            case SkillType.TimeShard: return shard;
+
             default: 
                 Debug.Log($"Skill type {type} is not implemented yet.");
                 return null;
