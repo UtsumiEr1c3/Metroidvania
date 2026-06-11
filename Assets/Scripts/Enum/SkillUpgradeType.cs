@@ -13,7 +13,7 @@ public enum SkillUpgradeType
 
     Shard,
     ShardMoveToEnemy,
-    ShardTripleCast,
+    ShardMultiCast,
     ShardTeleport,
     ShardTeleportAndHeal
 }
