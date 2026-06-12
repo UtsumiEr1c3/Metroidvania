@@ -94,6 +94,11 @@ public class Player : Entity
         input.Disable();
     }
 
+    public void TeleportPlayer(Vector3 newPosition)
+    {
+        transform.position = newPosition;
+    }
+
     protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
     {
         float originalMoveSpeed = moveSpeed;

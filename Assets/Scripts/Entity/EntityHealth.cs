@@ -120,6 +120,17 @@ public class EntityHealth : MonoBehaviour, IDamagable
         entity.EntityDeath();
     }
 
+    public float GetHealthPercentage()
+    {
+        return currentHealth / stats.GetMaxHealth();
+    }
+
+    public void SetHealthToPercentage(float percentage)
+    {
+        currentHealth = stats.GetMaxHealth() * Mathf.Clamp01(percentage);
+        UpdateHealthBar();
+    }
+
     /// <summary>
     /// update the heath bar slider UI
     /// </summary>
